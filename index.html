@@ -8,20 +8,30 @@ layout: default
     </div>
   </div>
 </section>
-<div class="columns">
+<div class="columns narrow">
   <div class="column">
     <ul class="post-list">
       {% for post in site.posts %}
         <li>
-          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-          <h2>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </h2>
+          <div class="card is-fullwidth">
+            <header class="card-header">
+              <p class="card-header-title">
+                {{ post.title }}
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                {{ post.date | date: "%b %-d, %Y" }}
+              </div>
+            </div>
+            <footer class="card-footer">
+              <a class="card-footer-item" href="{{ post.url | prepend: site.baseurl }}">
+                Read
+              </a>
+            </footer>
+          </div>
         </li>
       {% endfor %}
     </ul>
-
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
   </div>
 </div>

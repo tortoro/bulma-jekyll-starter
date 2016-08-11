@@ -1,6 +1,6 @@
 <header>
 
-  <nav class="nav">
+  <nav class="nav has-shadow">
     <div class="nav-left">
       <a class="nav-item is-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
     </div>
@@ -8,20 +8,29 @@
     <div class="nav-center">
     </div>
 
-    <span class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
     <div class="nav-right">
-      {% for my_page in site.pages %}
-        {% if my_page.title %}
-        <a class="nav-item" href="{{ my_page.url | prepend: site.baseurl }}">
-          {{ my_page.title }}
-        </a>
-        {% endif %}
-      {% endfor %}
-    </div>
+        {% for my_page in site.pages %}
+          {% if my_page.title %}
+            {% if my_page.permalink %}
+              <a class="nav-item" href="{{ my_page.permalink }}">
+                {{ my_page.title }}
+              </a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!-- <div class="is-mobile is-hidden-desktop">
+        {% for my_page in site.pages %}
+          {% if my_page.title %}
+            {% if my_page.permalink %}
+              <a class="nav-item" href="{{ my_page.permalink }}">
+                {{ my_page.mobile-icon }}
+              </a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div> -->
   </nav>
 
 </header>

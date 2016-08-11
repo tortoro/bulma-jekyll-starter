@@ -2,25 +2,16 @@
 
   <nav class="nav">
     <div class="nav-left">
-      <a class="nav-item is-brand" href="/">{{ site.title }}</a>
+      <a class="nav-item" href="{{ "/feed.xml" | prepend: site.baseurl }}">subscribe via RSS</a>
     </div>
 
     <div class="nav-center">
+      <a class="nav-item" href="https://github.com/{{ site.github_username }}/">
+        {{ site.year }}-<i class="fa fa-github">-</i>@{{ site.github_username }}
+      </a>
     </div>
 
-    <span class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
     <div class="nav-right">
-      {% for my_page in site.pages %}
-        {% if my_page.title && my_page.permalink %}
-        <a class="nav-item" href="{{ my_page.permalink }}">
-          {{ my_page.title }}
-        </a>
-        {% endif %}
-      {% endfor %}
     </div>
   </nav>
 
