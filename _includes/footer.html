@@ -2,7 +2,7 @@
 
   <nav class="nav">
     <div class="nav-left">
-      <a class="nav-item is-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+      <a class="nav-item is-brand" href="/">{{ site.title }}</a>
     </div>
 
     <div class="nav-center">
@@ -15,8 +15,8 @@
     </span>
     <div class="nav-right">
       {% for my_page in site.pages %}
-        {% if my_page.title %}
-        <a class="nav-item" href="{{ my_page.url | prepend: site.baseurl }}">
+        {% if my_page.title && my_page.permalink %}
+        <a class="nav-item" href="{{ my_page.permalink }}">
           {{ my_page.title }}
         </a>
         {% endif %}
